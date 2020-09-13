@@ -6,4 +6,6 @@ from django.http import HttpResponse
 
 def list_todo_items(request):
 
-    return HttpResponse('from list_todo_items')
+    context = {}
+
+    return render(request, 'todos/todos_list.html', context)
