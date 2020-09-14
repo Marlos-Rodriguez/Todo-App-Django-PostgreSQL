@@ -1,0 +1,1 @@
+web: gunicorn TodoPostgres.wsgi --log-file -

@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '3)(w_g%e0hz9pk)bs0(5+dxv^8$p+hxz2-6gh1ebk1m3d*phk_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -51,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'TodoPostgres.urls'
@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'TodoPostgres.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'TodoDB',
-        'USER': 'postgres',
-        'PASSWORD': 'Elmejordiademivida2009',
-        'HOST': 'localhost',
+        'NAME': 'debliqkgn4t4t6',
+        'USER': 'pxoplqascodwai',
+        'PASSWORD': '1120e77d20af8b52c94c4099ebdd16d21b8e6edd06780ba83737d4d74da38b3e',
+        'HOST': 'ec2-52-200-134-180.compute-1.amazonaws.com',
         'PORT': '5432'
     }
 }
@@ -126,3 +126,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
