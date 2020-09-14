@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 
+from decouple import config
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -81,11 +83,11 @@ WSGI_APPLICATION = 'TodoPostgres.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'debliqkgn4t4t6',
-        'USER': 'pxoplqascodwai',
-        'PASSWORD': '1120e77d20af8b52c94c4099ebdd16d21b8e6edd06780ba83737d4d74da38b3e',
-        'HOST': 'ec2-52-200-134-180.compute-1.amazonaws.com',
-        'PORT': '5432'
+        'NAME': config('DATABASE_NAME'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': config('DATABASE_PASSWORD'),
+        'HOST': config('DATABASE_HOST'),
+        'PORT': config('DATABASE_PORT', default='5432'),
     }
 }
 
